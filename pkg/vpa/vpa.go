@@ -635,11 +635,6 @@ func (r *Reconciler) WaitForReconciliationToComplete() {
 }
 
 
-// shouldSlowDownForControlPlane checks if we should slow down VPA operations due to control plane pressure
-func (r *Reconciler) shouldSlowDownForControlPlane() bool {
-	// ALWAYS slow down - the control plane is already overloaded
-	return true
-}
 
 // waitForRateLimit enforces the 10 calls/second rate limit for control plane operations
 func (r *Reconciler) waitForRateLimit(ctx context.Context, operation string) error {
